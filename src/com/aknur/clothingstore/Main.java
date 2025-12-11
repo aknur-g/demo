@@ -6,6 +6,6 @@ public class Main {
         System.out.println("This system will help manage clothing items and categories easily.");
         System.out.println("It will allow adding new products, updating inventory, and viewing sales.");
         System.out.println("Future updates will include customer management and order tracking.");
-        System.out.println("Project initialized successfully.");
+        System.out.println("Project initialized successfully by Galymzhankyzy Aknur II-2501");
     }
 }

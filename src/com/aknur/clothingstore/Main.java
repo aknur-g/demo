@@ -11,7 +11,7 @@ public class Main {
 
         // CREATE OBJECTS
         ClothingItem item1 = new ClothingItem(101, "Jacket", "L", 25000, "Zara");
-        ClothingItem item2 = new ClothingItem(102, "T-Shirt", "M", 8000, "Nike");
+        ClothingItem item2 = new ClothingItem(102, "T-Shirt", "M", 8000, "Qazaq Republic");
         ClothingItem item3 = new ClothingItem();
 
         Customer customer1 = new Customer(1, "Aknur Galymzhankyzy", "S", 90);

@@ -7,6 +7,7 @@ public class Main {
         System.out.println("It will allow adding new products, updating inventory, and viewing sales.");
         System.out.println("Future updates will include customer management and order tracking.");
         System.out.println("Project initialized successfully by Galymzhankyzy Aknur IT-2501");
+
         System.out.println("=== Clothing Store Management System ===\n");
 
         // CREATE OBJECTS

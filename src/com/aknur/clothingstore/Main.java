@@ -10,7 +10,6 @@ public class Main {
 
         System.out.println("=== Clothing Store Management System ===\n");
 
-        // CREATE OBJECTS
         ClothingItem item1 = new ClothingItem(101, "Jacket", "L", 25000, "Zara");
         ClothingItem item2 = new ClothingItem(102, "T-Shirt", "M", 8000, "Qazaq Republic");
         ClothingItem item3 = new ClothingItem();
@@ -20,7 +19,7 @@ public class Main {
 
         Order order1 = new Order(5001, customer1.getName(), 0.0, "Pending");
 
-        // DISPLAY OBJECTS
+
         System.out.println("--- CLOTHING ITEMS ---");
         System.out.println(item1);
         System.out.println(item2);
@@ -36,13 +35,11 @@ public class Main {
         System.out.println(order1);
         System.out.println();
 
-        // TEST GETTERS
         System.out.println("--- TESTING GETTERS ---");
         System.out.println("Item1 price: " + item1.getPrice());
         System.out.println("Customer1 points: " + customer1.getLoyaltyPoints());
         System.out.println();
 
-        // TEST SETTERS
         System.out.println("--- TESTING SETTERS ---");
         item3.setName("Jeans");
         item3.setPrice(15000);
@@ -50,7 +47,6 @@ public class Main {
         System.out.println(item3);
         System.out.println();
 
-        // TEST METHODS
         System.out.println("--- TESTING METHODS ---");
         item1.applyDiscount(10);
         System.out.println("Discounted item1 price: " + item1.getPrice());

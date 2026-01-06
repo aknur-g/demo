@@ -57,7 +57,7 @@ public class Main {
                     break;
                 case 0:
                     running = false;
-                    System.out.println("Goodbye!");
+                    System.out.println("Goodbye!\uD83C\uDF1F");
                     break;
                 default:
                     System.out.println("Invalid choice!");
@@ -107,7 +107,7 @@ public class Main {
         ClothingItem item = new ClothingItem(id, name, size, price, brand);
         items.add(item);
 
-        System.out.println("Clothing item added successfully!");
+        System.out.println("Clothing item added successfully!\uD83C\uDF1F");
     }
 
     private static void viewAllItems() {
@@ -143,7 +143,7 @@ public class Main {
         Customer customer = new Customer(id, name, size, points);
         customers.add(customer);
 
-        System.out.println("Customer added successfully!");
+        System.out.println("Customer added successfully!\uD83C\uDF1F");
     }
 
     private static void viewAllCustomers() {
@@ -179,7 +179,7 @@ public class Main {
         Order order = new Order(id, name, amount, status);
         orders.add(order);
 
-        System.out.println("Order added successfully!");
+        System.out.println("Order added successfully!\uD83C\uDF1F");
     }
 
     private static void viewAllOrders() {

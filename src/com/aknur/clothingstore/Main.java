@@ -24,7 +24,6 @@ public class Main {
         items.add(new Skirt(3, "Autumn Skirt", "S", 18000, "Bershka", "midi"));
         items.add(new Pants(4, "Classic Pants", "M", 25000, "Lichi", 32));
 
-
         customers.add(new Customer(1, "Aknur", "S", 90));
         customers.add(new Customer(2, "Moritz Hau", "L", 150));
 
@@ -32,7 +31,6 @@ public class Main {
         orders.add(new Order(1002, "Moritz Hau", 8000, "Pending"));
 
 
-        // Step 3: Menu loop
         boolean running = true;
 
         while (running) {

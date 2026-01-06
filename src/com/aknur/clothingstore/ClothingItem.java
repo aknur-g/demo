@@ -7,13 +7,15 @@ public class ClothingItem {
     private double price;
     private String brand;
 
-    public ClothingItem( int ItemID, String name, String size, double price, String brand ) {
+
+    public ClothingItem(int itemId, String name, String size, double price, String brand) {
         this.itemId = itemId;
-        this.name = name;
-        this.size = size;
-        this.price = price;
-        this.brand = brand;
+        setName(name);
+        setSize(size);
+        setPrice(price);
+        setBrand(brand);
     }
+
 
     public ClothingItem (){
         this.itemId = 0;
@@ -22,6 +24,7 @@ public class ClothingItem {
         this.price = 0.0;
         this.brand = "No Brand";
     }
+
     public int getItemId() {
         return itemId;
     }
@@ -45,17 +48,36 @@ public class ClothingItem {
     public void setItemId( int itemId) {
         this.itemId = itemId;
     }
-    public void setName( String name){
-        this.name = name;
+
+    public void setName(String name) {
+        if (name != null && !name.trim().isEmpty()) {
+            this.name = name;
+        } else {
+            System.out.println("Warning: Name cannot be empty!");
+        }
     }
-    public void setSize(String size){
-        this.size = size;
+    public void setSize(String size) {
+        if (size != null && !size.isEmpty()) {
+            this.size = size;
+        } else {
+            this.size = "S";
+        }
     }
-    public void setPrice(double price){
-        this.price = price;
+
+    public void setPrice(double price) {
+        if (price >= 0) {
+            this.price = price;
+        } else {
+            System.out.println("Price cannot be negative. Set to 0.");
+            this.price = 0;
+        }
     }
-    public void setBrand(String brand){
-        this.brand = brand;
+    public void setBrand(String brand) {
+        if (brand != null && !brand.isEmpty()) {
+            this.brand = brand;
+        } else {
+            this.brand = "No Brand";
+        }
     }
 
     public void applyDiscount(double percentage) {

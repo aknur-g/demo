@@ -8,9 +8,9 @@ public class Customer {
 
     public Customer(int customerId, String name, String preferredSize, int loyaltyPoints) {
         this.customerId = customerId;
-        this.name = name;
-        this.preferredSize = preferredSize;
-        this.loyaltyPoints = loyaltyPoints;
+        setName(name);
+        setPreferredSize(preferredSize);
+        setLoyaltyPoints(loyaltyPoints);
     }
 
     public Customer() {
@@ -40,19 +40,33 @@ public class Customer {
     }
 
     public void setName(String name) {
-        this.name = name;
+        if (name != null && !name.trim().isEmpty()) {
+            this.name = name;
+        } else {
+            this.name = "Unknown Customer, please enter your name^^.";
+        }
     }
 
     public void setPreferredSize(String preferredSize) {
-        this.preferredSize = preferredSize;
+        if (preferredSize != null && !preferredSize.isEmpty()) {
+            this.preferredSize = preferredSize;
+        } else {
+            this.preferredSize = "S";
+        }
     }
 
     public void setLoyaltyPoints(int loyaltyPoints) {
-        this.loyaltyPoints = loyaltyPoints;
+        if (loyaltyPoints >= 0) {
+            this.loyaltyPoints = loyaltyPoints;
+        } else {
+            this.loyaltyPoints = 0;
+        }
     }
 
     public void addPoints(int points) {
-        loyaltyPoints += points;
+        if (points > 0) {
+            loyaltyPoints += points;
+        }
     }
 
     public boolean isVIP() {

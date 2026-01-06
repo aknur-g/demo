@@ -8,9 +8,9 @@ public class Order {
 
     public Order(int orderId, String customerName, double totalAmount, String status) {
         this.orderId = orderId;
-        this.customerName = customerName;
-        this.totalAmount = totalAmount;
-        this.status = status;
+        setCustomerName(customerName);
+        setTotalAmount(totalAmount);
+        setStatus(status);
     }
 
     public Order() {
@@ -37,17 +37,24 @@ public class Order {
         this.orderId = orderId;
     }
     public void setCustomerName(String customerName) {
-        this.customerName = customerName;
+        if (customerName != null && !customerName.trim().isEmpty()) {
+            this.customerName = customerName;
+        } else {
+            this.customerName = "Unknown";
+        }
     }
     public void setTotalAmount(double totalAmount) {
         this.totalAmount = totalAmount;
     }
+
     public void setStatus(String status) {
         this.status = status;
     }
 
     public void addAmount(double amount) {
-        totalAmount += amount;
+        if (amount > 0) {
+            totalAmount += amount;
+        }
     }
 
     public void completeOrder() {
@@ -55,7 +62,7 @@ public class Order {
     }
 
     public boolean isPending() {
-        return status.equals("Pending");
+        return "Pending".equals(status);
     }
 
     @Override

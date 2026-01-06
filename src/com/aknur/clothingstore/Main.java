@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class Main {
 
-    // Step 1: ArrayLists and Scanner
     private static ArrayList<ClothingItem> items = new ArrayList<>();
     private static ArrayList<Customer> customers = new ArrayList<>();
     private static ArrayList<Order> orders = new ArrayList<>();
@@ -13,7 +12,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // --- Welcome message ---
         System.out.println("Welcome to the Clothing Store Management System!!");
         System.out.println("This system will help manage clothing items and categories easily.");
         System.out.println("It will allow adding new products, updating inventory, and viewing sales.");
@@ -21,7 +19,6 @@ public class Main {
         System.out.println("Project initialized successfully by Galymzhankyzy Aknur IT-2501");
         System.out.println("\n=== Clothing Store Management System ===\n");
 
-        // Step 2: Add test data
         items.add(new ClothingItem(1, "Jacket", "M", 30000, "Zara"));
         items.add(new ClothingItem(2, "T-Shirt", "L", 8000, "H&M"));
 
@@ -75,7 +72,6 @@ public class Main {
         scanner.close();
     }
 
-    // Step 4: Display menu
     private static void displayMenu() {
         System.out.println("\n=== CLOTHING STORE SYSTEM ===");
         System.out.println("1. Add Clothing Item");
@@ -88,7 +84,6 @@ public class Main {
         System.out.print("Enter your choice: ");
     }
 
-    // Step 5: Add Clothing Item
     private static void addClothingItem() {
         System.out.println("\n--- Add Clothing Item ---");
 
@@ -115,7 +110,6 @@ public class Main {
         System.out.println("Clothing item added successfully!");
     }
 
-    // Step 6: View all Clothing Items
     private static void viewAllItems() {
         System.out.println("\n--- All Clothing Items ---");
 
@@ -129,7 +123,6 @@ public class Main {
         }
     }
 
-    // Step 7: Add Customer
     private static void addCustomer() {
         System.out.println("\n--- Add Customer ---");
 
@@ -153,7 +146,6 @@ public class Main {
         System.out.println("Customer added successfully!");
     }
 
-    // Step 8: View all Customers
     private static void viewAllCustomers() {
         System.out.println("\n--- All Customers ---");
 
@@ -167,7 +159,6 @@ public class Main {
         }
     }
 
-    // Step 9: Add Order
     private static void addOrder() {
         System.out.println("\n--- Add Order ---");
 
@@ -191,7 +182,6 @@ public class Main {
         System.out.println("Order added successfully!");
     }
 
-    // Step 10: View all Orders
     private static void viewAllOrders() {
         System.out.println("\n--- All Orders ---");
 

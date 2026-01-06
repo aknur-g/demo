@@ -1,11 +1,11 @@
 package com.aknur.clothingstore;
 
 public class ClothingItem {
-    private int itemId;
-    private String name;
-    private String size;
-    private double price;
-    private String brand;
+    protected int itemId;
+    protected String name;
+    protected String size;
+    protected double price;
+    protected String brand;
 
 
     public ClothingItem(int itemId, String name, String size, double price, String brand) {
@@ -16,6 +16,16 @@ public class ClothingItem {
         setBrand(brand);
     }
 
+    public void displayInfo() {
+        System.out.println("Clothing item: " + name + ", price " + price);
+    }
+    public String getCategory() {
+        return "Clothing Item";
+    }
+
+    public boolean isExpensive() {
+        return price > 20000;
+    }
 
     public ClothingItem (){
         this.itemId = 0;

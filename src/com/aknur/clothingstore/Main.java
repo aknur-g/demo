@@ -21,12 +21,16 @@ public class Main {
 
         items.add(new ClothingItem(1, "Jacket", "M", 30000, "Zara"));
         items.add(new ClothingItem(2, "T-Shirt", "L", 8000, "H&M"));
+        items.add(new Skirt(3, "Autumn Skirt", "S", 18000, "Bershka", "midi"));
+        items.add(new Pants(4, "Classic Pants", "M", 25000, "Lichi", 32));
 
-        customers.add(new Customer(1, "Aknur Galymzhankyzy", "S", 90));
+
+        customers.add(new Customer(1, "Aknur", "S", 90));
         customers.add(new Customer(2, "Moritz Hau", "L", 150));
 
-        orders.add(new Order(1001, "Aknur Galymzhankyzy", 38000, "Completed"));
+        orders.add(new Order(1001, "Aknur", 38000, "Completed"));
         orders.add(new Order(1002, "Moritz Hau", 8000, "Pending"));
+
 
         // Step 3: Menu loop
         boolean running = true;
@@ -55,6 +59,12 @@ public class Main {
                 case 6:
                     viewAllOrders();
                     break;
+                case 7:
+                    demonstratePolymorphism();
+                    break;
+                case 8:
+                    showSkirtDetails();
+                    break;
                 case 0:
                     running = false;
                     System.out.println("Goodbye!\uD83C\uDF1F");
@@ -72,6 +82,27 @@ public class Main {
         scanner.close();
     }
 
+    private static void showSkirtDetails() {
+        System.out.println("\n=== SKIRT DETAILS (instanceof demo)===");
+
+        for ( ClothingItem item : items){
+            if ( item instanceof Skirt) {
+                Skirt skirt = (Skirt) item;
+                System.out.println(
+                        "Skirt name: " + skirt.getName() + ", length: " + skirt.getLengthType()
+                );
+            }
+        }
+    }
+
+    private static void demonstratePolymorphism(){
+        System.out.println("\n=== POLYMORPHISM DEMO ===");
+
+        for ( ClothingItem item : items){
+            item.displayInfo();
+        }
+    }
+
     private static void displayMenu() {
         System.out.println("\n=== CLOTHING STORE SYSTEM ===");
         System.out.println("1. Add Clothing Item");
@@ -80,6 +111,8 @@ public class Main {
         System.out.println("4. View All Customers");
         System.out.println("5. Add Order");
         System.out.println("6. View All Orders");
+        System.out.println("7. Show polymorphism demo");
+        System.out.println("8. Show skirt details (instanceof demo)");
         System.out.println("0. Exit");
         System.out.print("Enter your choice: ");
     }
@@ -181,6 +214,7 @@ public class Main {
 
         System.out.println("Order added successfully!\uD83C\uDF1F");
     }
+
 
     private static void viewAllOrders() {
         System.out.println("\n--- All Orders ---");

@@ -40,19 +40,17 @@ public class Customer {
     }
 
     public void setName(String name) {
-        if (name != null && !name.trim().isEmpty()) {
-            this.name = name;
-        } else {
-            this.name = "Unknown Customer, please enter your name^^.";
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("Customer name cannot be empty");
         }
+        this.name = name;
     }
 
     public void setPreferredSize(String preferredSize) {
-        if (preferredSize != null && !preferredSize.isEmpty()) {
-            this.preferredSize = preferredSize;
-        } else {
-            this.preferredSize = "S";
+        if (preferredSize == null || preferredSize.isEmpty()) {
+            throw new IllegalArgumentException("Preferred size cannot be empty");
         }
+        this.preferredSize = preferredSize;
     }
 
     public void setLoyaltyPoints(int loyaltyPoints) {

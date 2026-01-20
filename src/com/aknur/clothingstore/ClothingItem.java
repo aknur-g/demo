@@ -1,6 +1,6 @@
 package com.aknur.clothingstore;
 
-public class ClothingItem {
+public abstract class ClothingItem implements Discountable {
     protected int itemId;
     protected String name;
     protected String size;
@@ -16,9 +16,7 @@ public class ClothingItem {
         setBrand(brand);
     }
 
-    public void displayInfo() {
-        System.out.println("Clothing item: " + name + ", price " + price);
-    }
+    public abstract void displayInfo();
     public String getCategory() {
         return "Clothing Item";
     }
@@ -60,38 +58,36 @@ public class ClothingItem {
     }
 
     public void setName(String name) {
-        if (name != null && !name.trim().isEmpty()) {
-            this.name = name;
-        } else {
-            System.out.println("Warning: Name cannot be empty!");
-        }
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be empty.");
+        } this.name = name;
     }
+
     public void setSize(String size) {
-        if (size != null && !size.isEmpty()) {
-            this.size = size;
-        } else {
-            this.size = "S";
-        }
+        if (size == null || size.isEmpty()) {
+            throw new IllegalArgumentException("Size cannot be empty.");
+        } this.size = size;
     }
 
     public void setPrice(double price) {
-        if (price >= 0) {
-            this.price = price;
-        } else {
-            System.out.println("Price cannot be negative. Set to 0.");
-            this.price = 0;
+        if (price < 0) {
+            throw new IllegalArgumentException("Price cannot be negative.");
         }
-    }
-    public void setBrand(String brand) {
-        if (brand != null && !brand.isEmpty()) {
-            this.brand = brand;
-        } else {
-            this.brand = "No Brand";
-        }
+        this.price = price;
     }
 
-    public void applyDiscount(double percentage) {
-        price = price * (1 - percentage / 100);
+    public void setBrand(String brand) {
+        if (brand == null || brand.isEmpty()) {
+            throw new IllegalArgumentException("Brand cannot be empty");
+        } this.brand = brand;
+    }
+
+    @Override
+    public void applyDiscount(double percent) {
+        if (percent < 0 || percent > 100) {
+            throw new IllegalArgumentException("Invalid discount percent");
+        }
+        price -= price * percent / 100;
     }
 
     public boolean isPremium(){

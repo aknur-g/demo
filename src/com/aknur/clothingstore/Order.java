@@ -36,12 +36,11 @@ public class Order {
     public void setOrderId(int orderId) {
         this.orderId = orderId;
     }
+
     public void setCustomerName(String customerName) {
-        if (customerName != null && !customerName.trim().isEmpty()) {
-            this.customerName = customerName;
-        } else {
-            this.customerName = "Unknown";
-        }
+        if (customerName == null | customerName.trim().isEmpty()) {
+            throw new IllegalArgumentException("Name cannot ne ampty.");
+        } this.customerName = customerName;
     }
     public void setTotalAmount(double totalAmount) {
         this.totalAmount = totalAmount;

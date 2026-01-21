@@ -19,6 +19,8 @@ public class MenuManager implements Menu {
 
         items.add(new Pants(1, "Classic Pants", "M", 25000, "Lichi", 30));
         items.add(new Skirt(2, "Autumn Skirt", "S", 18000, "Bershka", "midi"));
+        customers.add(new Customer(1, "Hau", "S", 90));
+        orders.add(new Order(1001, "Ayau", 38000, "Pending"));
     }
 
     private void viewAllItems() {
@@ -31,6 +33,26 @@ public class MenuManager implements Menu {
         }
     }
 
+    private void viewAllCustomers() {
+        if (customers.isEmpty()) {
+            System.out.println("No customers found.");
+            return;
+        }
+        for (Customer customer : customers) {
+            System.out.println(customer);
+        }
+    }
+
+    private void viewAllOrders(){
+        if (orders.isEmpty()){
+            System.out.println("No orders found.");
+            return;
+        }
+        for (Order order : orders ){
+            System.out.println(orders);
+        }
+    }
+
     private void demonstratePolymorphism() {
         System.out.println("\n--- Polymorphism Demo ---");
         for (ClothingItem item : items) {
@@ -40,12 +62,14 @@ public class MenuManager implements Menu {
 
     @Override
     public void displayMenu() {
-        System.out.println("\n=== CLOTHING STORE SYSTEM ===");
+        System.out.println("\n===CLOTHING STORE SYSTEM===");
         System.out.println("1. Add Clothing Item");
         System.out.println("2. View All Clothing Items");
-        System.out.println("3. Polymorphism demo");
+        System.out.println("3. View Customers");
+        System.out.println("4. View Orders");
+        System.out.println("5. Polymorphism Demo");
         System.out.println("0. Exit");
-        System.out.print("Please enter your choice: ");
+        System.out.println("Please enter your choice!");
     }
 
     @Override
@@ -66,16 +90,21 @@ public class MenuManager implements Menu {
                         viewAllItems();
                         break;
                     case 3:
+                        viewAllCustomers();
+                        break;
+                    case 4:
+                        viewAllOrders();
+                        break;
+                    case 5:
                         demonstratePolymorphism();
                         break;
                     case 0:
                         running = false;
-                        System.out.println("Goodbye!\uD83C\uDF1F");
+                        System.out.println("Goodbye!");
                         break;
                     default:
                         System.out.println("Invalid choice!");
                 }
-
             } catch (Exception e) {
                 System.out.println("Error: " + e.getMessage());
                 scanner.nextLine();

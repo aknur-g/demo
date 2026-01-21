@@ -51,7 +51,7 @@ public class MenuManager implements Menu {
         System.out.println("2. View All Clothing Items");
         System.out.println("3. Polymorphism demo");
         System.out.println("0. Exit");
-        System.out.print("Enter your choice: ");
+        System.out.print("Please enter your choice: ");
     }
 
     @Override

@@ -11,15 +11,22 @@ public class MenuManager implements Menu {
     private ArrayList<Order> orders;
     private Scanner scanner;
 
-    public MenuManager(ArrayList<ClothingItem> items,
-                       ArrayList<Customer> customers,
-                       ArrayList<Order> orders) {
-
-        this.items = items;
-        this.customers = customers;
-        this.orders = orders;
+    public MenuManager() {
+        this.items = new ArrayList<>();
+        this.customers = new ArrayList<>();
+        this.orders = new ArrayList<>();
         this.scanner = new Scanner(System.in);
+
+        items.add(new Pants(1, "Classic Pants", "M", 25000, "Lichi", 32));
+        items.add(new Skirt(2, "Autumn Skirt", "S", 18000, "Bershka", "midi"));
+
+        customers.add(new Customer(1, "Aknur", "S", 90));
+        customers.add(new Customer(2, "Moritz Hau", "L", 150));
+
+        orders.add(new Order(1001, "Aknur", 38000, "Completed"));
+        orders.add(new Order(1002, "Moritz Hau", 8000, "Pending"));
     }
+
     private void viewAllItems() {
         if (items.isEmpty()) {
             System.out.println("No clothing items found.");
@@ -105,6 +112,8 @@ public class MenuManager implements Menu {
             String brand = scanner.nextLine();
 
             ClothingItem item = new Pants(id, name, size, price, brand, 32);
+            item.applyDiscount(10);
+
             items.add(item);
 
             System.out.println("Item added successfully!");

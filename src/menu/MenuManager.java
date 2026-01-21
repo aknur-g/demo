@@ -98,7 +98,7 @@ public class MenuManager implements Menu {
                         break;
                     case 0:
                         running = false;
-                        System.out.println("Goodbye!");
+                        System.out.println("Goodbye!\uD83C\uDF1F");
                         break;
                     default:
                         System.out.println("Invalid choice!");

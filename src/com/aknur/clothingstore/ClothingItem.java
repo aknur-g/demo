@@ -71,7 +71,7 @@ public abstract class ClothingItem implements Discountable {
 
     public void setPrice(double price) {
         if (price < 0) {
-            throw new IllegalArgumentException("Price cannot be negative.");
+            throw new NumberFormatException("Price cannot be negative.");
         }
         this.price = price;
     }

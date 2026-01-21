@@ -17,7 +17,7 @@ public class MenuManager implements Menu {
         this.orders = new ArrayList<>();
         this.scanner = new Scanner(System.in);
 
-        items.add(new Pants(1, "Classic Pants", "M", 25000, "Lichi", 32));
+        items.add(new Pants(1, "Classic Pants", "M", 25000, "Lichi", 30));
         items.add(new Skirt(2, "Autumn Skirt", "S", 18000, "Bershka", "midi"));
     }
 

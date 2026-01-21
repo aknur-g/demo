@@ -38,12 +38,14 @@ public class Order {
     }
 
     public void setCustomerName(String customerName) {
-        if (customerName == null | customerName.trim().isEmpty()) {
-            throw new IllegalArgumentException("Name cannot ne ampty.");
+        if (customerName == null || customerName.trim().isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be empty.");
         } this.customerName = customerName;
     }
     public void setTotalAmount(double totalAmount) {
-        this.totalAmount = totalAmount;
+        if (totalAmount < 0){
+            throw new NumberFormatException(" Amount cannot be negative.");
+        } this.totalAmount = totalAmount;
     }
 
     public void setStatus(String status) {

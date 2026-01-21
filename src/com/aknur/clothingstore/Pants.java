@@ -21,7 +21,6 @@ public class Pants extends ClothingItem {
     public boolean isLargeWaist() {
         return waistSize >= 34;
     }
-
     public void ironPants() {
         System.out.println("Pants " + name + " are ironed.");
     }

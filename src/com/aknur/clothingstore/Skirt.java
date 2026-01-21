@@ -16,7 +16,7 @@ public class Skirt extends ClothingItem {
                         ", price: " + price
         );
     }
-
+     
     @Override
     public String getCategory() {
         return "Skirt";

@@ -32,7 +32,6 @@ public class MenuManager implements Menu {
             System.out.println("No clothing items found.");
             return;
         }
-
         for (ClothingItem item : items) {
             System.out.println(item);
         }
@@ -78,7 +77,7 @@ public class MenuManager implements Menu {
                         break;
                     case 0:
                         running = false;
-                        System.out.println("Goodbye!");
+                        System.out.println("Goodbye!\uD83C\uDF1F");
                         break;
                     default:
                         System.out.println("Invalid choice!");
@@ -95,8 +94,7 @@ public class MenuManager implements Menu {
     private void addClothingItem() {
         try {
             System.out.print("ID: ");
-            int id = scanner.nextInt();
-            scanner.nextLine();
+            int id = Integer.parseInt(scanner.nextLine());
 
             System.out.print("Name: ");
             String name = scanner.nextLine();
@@ -105,22 +103,21 @@ public class MenuManager implements Menu {
             String size = scanner.nextLine();
 
             System.out.print("Price: ");
-            double price = scanner.nextDouble();
-            scanner.nextLine();
+            double price = Double.parseDouble(scanner.nextLine());
 
             System.out.print("Brand: ");
             String brand = scanner.nextLine();
 
-            ClothingItem item = new Pants(id, name, size, price, brand, 32);
+            ClothingItem item = new Pants(id, name, size, price, brand, 30);
             item.applyDiscount(10);
 
             items.add(item);
+            System.out.println("Item added successfully!\uD83C\uDF1F");
 
-            System.out.println("Item added successfully!");
-
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid number format!");
+        } catch (IllegalArgumentException e) {
             System.out.println("Error: " + e.getMessage());
-            scanner.nextLine();
         }
     }
 }

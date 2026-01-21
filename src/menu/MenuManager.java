@@ -79,9 +79,7 @@ public class MenuManager implements Menu {
         while (running) {
             displayMenu();
             try {
-                int choice = scanner.nextInt();
-                scanner.nextLine();
-
+                int choice = Integer.parseInt(scanner.nextLine());
                 switch (choice) {
                     case 1:
                         addClothingItem();
@@ -105,8 +103,8 @@ public class MenuManager implements Menu {
                     default:
                         System.out.println("Invalid choice!");
                 }
-            } catch (Exception e) {
-                System.out.println("Error: " + e.getMessage());
+            } catch (NumberFormatException e) {
+                System.out.println("Please enter a number :)");
                 scanner.nextLine();
             }
         }

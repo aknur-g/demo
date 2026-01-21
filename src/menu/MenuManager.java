@@ -49,7 +49,7 @@ public class MenuManager implements Menu {
             return;
         }
         for (Order order : orders ){
-            System.out.println(orders);
+            System.out.println(order);
         }
     }
 

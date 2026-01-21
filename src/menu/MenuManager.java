@@ -19,12 +19,6 @@ public class MenuManager implements Menu {
 
         items.add(new Pants(1, "Classic Pants", "M", 25000, "Lichi", 32));
         items.add(new Skirt(2, "Autumn Skirt", "S", 18000, "Bershka", "midi"));
-
-        customers.add(new Customer(1, "Aknur", "S", 90));
-        customers.add(new Customer(2, "Moritz Hau", "L", 150));
-
-        orders.add(new Order(1001, "Aknur", 38000, "Completed"));
-        orders.add(new Order(1002, "Moritz Hau", 8000, "Pending"));
     }
 
     private void viewAllItems() {
@@ -87,7 +81,6 @@ public class MenuManager implements Menu {
                 scanner.nextLine();
             }
         }
-        scanner.close();
     }
 
     private void addClothingItem() {

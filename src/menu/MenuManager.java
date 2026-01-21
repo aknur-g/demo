@@ -104,7 +104,7 @@ public class MenuManager implements Menu {
                         System.out.println("Invalid choice!");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Please enter a number :)");
+                System.out.println("Please enter a number :) ");
                 scanner.nextLine();
             }
         }

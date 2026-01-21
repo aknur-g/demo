@@ -39,7 +39,6 @@ public class MenuManager implements Menu {
 
     private void demonstratePolymorphism() {
         System.out.println("\n--- Polymorphism Demo ---");
-
         for (ClothingItem item : items) {
             item.displayInfo();
         }

@@ -111,7 +111,6 @@ public class MenuManager implements Menu {
         } catch (IllegalArgumentException e) {
             System.out.println("Error: " + e.getMessage());
         }
-        scanner.close();
     }
 }
 

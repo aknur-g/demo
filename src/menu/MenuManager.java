@@ -2,8 +2,6 @@ package menu;
 
 import database.ClothingItemDAO;
 import com.aknur.clothingstore.*;
-
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MenuManager implements Menu {

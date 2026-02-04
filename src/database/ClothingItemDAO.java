@@ -2,8 +2,6 @@ package database;
 
 import com.aknur.clothingstore.ClothingItem;
 
-import javax.imageio.plugins.jpeg.JPEGImageReadParam;
-import javax.xml.crypto.Data;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.Statement;

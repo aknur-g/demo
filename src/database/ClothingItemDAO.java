@@ -5,7 +5,6 @@ import com.aknur.clothingstore.ClothingItem;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -207,7 +206,7 @@ public class ClothingItemDAO {
             System.out.println("\n--- Items in price range ---");
 
             boolean found = false;
-            while (rs.next()) {
+            while (rs.next()){
                 found = true;
                 System.out.println(
                         "ID: " + rs.getInt("item_id") +
@@ -216,10 +215,6 @@ public class ClothingItemDAO {
                                 ", Price: " + rs.getDouble("price") +
                                 ", Brand: " + rs.getString("brand")
                 );
-            }
-
-            if (!found) {
-                System.out.println("No items found in this range.");
             }
 
             rs.close();

@@ -97,7 +97,7 @@ public class MenuManager implements Menu {
             System.out.print("Are you sure? (yes/no): ");
             String confirm = scanner.nextLine();
 
-            if (confirm.equalsIgnoreCase("yes")) {
+            if (confirm.equalsIgnoreCase("yes")){
                 boolean deleted = itemDAO.deleteItem(id);
 
                 if (deleted) {
@@ -105,11 +105,11 @@ public class MenuManager implements Menu {
                 } else {
                     System.out.println("Deletion failed.");
                 }
-            } else {
+            }else {
                 System.out.println("Deletion cancelled.");
             }
 
-        } catch (NumberFormatException e) {
+        } catch ( NumberFormatException e){
             System.out.println("Invalid number format.");
         }
     }

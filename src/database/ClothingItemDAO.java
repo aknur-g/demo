@@ -3,7 +3,6 @@ package database;
 import com.aknur.clothingstore.BasicClothingItem;
 import com.aknur.clothingstore.ClothingItem;
 
-import javax.xml.crypto.Data;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
@@ -21,7 +20,6 @@ public class ClothingItemDAO {
 
         try{
             PreparedStatement ps = connection.prepareStatement(sql);
-
             ps.setString(1, item.getName());
             ps.setString(2, item.getSize());
             ps.setDouble(3, item.getPrice());
@@ -31,7 +29,6 @@ public class ClothingItemDAO {
             ps.close();
         }catch (SQLException e){
             System.out.println("Error while inserting item.");
-            e.printStackTrace();
         } finally {
             DatabaseConnection.closeConnection(connection);
         }
@@ -42,11 +39,12 @@ public class ClothingItemDAO {
         String sql = "SELECT * FROM clothing_item";
         Connection connection = DatabaseConnection.getConnection();
 
-        try{
-            Statement st = connection.createStatement();
-            ResultSet rs = st.executeQuery(sql);
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
 
             System.out.println("\n--- ITEMS FROM DATABASE ---");
+
             while (rs.next()) {
                 System.out.println(
                         "ID: " + rs.getInt("item_id") +
@@ -56,10 +54,14 @@ public class ClothingItemDAO {
                                 ", Brand: " + rs.getString("brand")
                 );
             }
-        }catch (SQLException e){
+
+            rs.close();
+            ps.close();
+
+        } catch (SQLException e) {
             System.out.println("Error while reading items.");
             e.printStackTrace();
-        }finally {
+        } finally {
             DatabaseConnection.closeConnection(connection);
         }
     }
@@ -93,14 +95,12 @@ public class ClothingItemDAO {
     }
 
     public ClothingItem getItemById(int id) {
-
         String sql = "SELECT * FROM clothing_item WHERE item_id = ?";
         Connection connection = DatabaseConnection.getConnection();
 
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, id);
-
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
@@ -207,7 +207,6 @@ public class ClothingItemDAO {
             System.out.println("\n--- Items in price range ---");
 
             boolean found = false;
-
             while (rs.next()) {
                 found = true;
                 System.out.println(
@@ -249,7 +248,8 @@ public class ClothingItemDAO {
                 System.out.println(
                         "ID: " + rs.getInt("item_id") +
                                 ", Name: " + rs.getString("name") +
-                        ", Price: " + rs.getDouble("price")
+                        ", Price: " + rs.getDouble("price") +
+                        ", Brand: " + rs.getString("brand")
                 );
             }
 

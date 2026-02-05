@@ -1,7 +1,9 @@
 package database;
 
+import com.aknur.clothingstore.BasicClothingItem;
 import com.aknur.clothingstore.ClothingItem;
 
+import javax.xml.crypto.Data;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
@@ -17,7 +19,7 @@ public class ClothingItemDAO {
 
         Connection connection = DatabaseConnection.getConnection();
 
-        try {
+        try{
             PreparedStatement ps = connection.prepareStatement(sql);
 
             ps.setString(1, item.getName());
@@ -27,8 +29,7 @@ public class ClothingItemDAO {
 
             ps.executeUpdate();
             ps.close();
-
-        } catch (SQLException e) {
+        }catch (SQLException e){
             System.out.println("Error while inserting item.");
             e.printStackTrace();
         } finally {
@@ -41,12 +42,11 @@ public class ClothingItemDAO {
         String sql = "SELECT * FROM clothing_item";
         Connection connection = DatabaseConnection.getConnection();
 
-        try {
+        try{
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(sql);
 
             System.out.println("\n--- ITEMS FROM DATABASE ---");
-
             while (rs.next()) {
                 System.out.println(
                         "ID: " + rs.getInt("item_id") +
@@ -56,14 +56,10 @@ public class ClothingItemDAO {
                                 ", Brand: " + rs.getString("brand")
                 );
             }
-
-            rs.close();
-            st.close();
-
-        } catch (SQLException e) {
+        }catch (SQLException e){
             System.out.println("Error while reading items.");
             e.printStackTrace();
-        } finally {
+        }finally {
             DatabaseConnection.closeConnection(connection);
         }
     }
@@ -75,9 +71,8 @@ public class ClothingItemDAO {
 
         Connection connection = DatabaseConnection.getConnection();
 
-        try {
+        try{
             PreparedStatement ps = connection.prepareStatement(sql);
-
             ps.setString(1, name);
             ps.setString(2, size);
             ps.setDouble(3, price);
@@ -87,7 +82,7 @@ public class ClothingItemDAO {
             int rows = ps.executeUpdate();
             ps.close();
 
-            return rows > 0; // true if updated
+            return rows > 0;
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -109,28 +104,13 @@ public class ClothingItemDAO {
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-                ClothingItem item = new ClothingItem(
+                ClothingItem item = new BasicClothingItem(
                         rs.getInt("item_id"),
                         rs.getString("name"),
                         rs.getString("size"),
                         rs.getDouble("price"),
                         rs.getString("brand")
-                ) {
-                    @Override
-                    public void displayInfo() {
-                        System.out.println(
-                                "Item: " + getName() +
-                                        ", Size: " + getSize() +
-                                        ", Price: " + getPrice() +
-                                        ", Brand: " + getBrand()
-                        );
-                    }
-
-                    @Override
-                    public String getCategory() {
-                        return "ClothingItem";
-                    }
-                };
+                );
 
                 rs.close();
                 ps.close();
@@ -145,29 +125,27 @@ public class ClothingItemDAO {
         } finally {
             DatabaseConnection.closeConnection(connection);
         }
-
         return null;
     }
-
 
     public boolean deleteItem(int itemId) {
 
         String sql = "DELETE FROM clothing_item WHERE item_id = ?";
         Connection connection = DatabaseConnection.getConnection();
 
-        try {
+        try{
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, itemId);
 
             int rows = ps.executeUpdate();
             ps.close();
 
-            return rows > 0; // true if deleted
+            return rows > 0;
 
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
-        } finally {
+        }finally {
             DatabaseConnection.closeConnection(connection);
         }
     }
@@ -179,7 +157,7 @@ public class ClothingItemDAO {
 
         Connection connection = DatabaseConnection.getConnection();
 
-        try {
+        try{
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, "%" + keyword + "%");
 
@@ -189,7 +167,7 @@ public class ClothingItemDAO {
 
             boolean found = false;
 
-            while (rs.next()) {
+            while (rs.next()){
                 found = true;
                 System.out.println(
                         "ID: " + rs.getInt("item_id") +
@@ -203,10 +181,8 @@ public class ClothingItemDAO {
             if (!found) {
                 System.out.println("No items found.");
             }
-
             rs.close();
             ps.close();
-
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

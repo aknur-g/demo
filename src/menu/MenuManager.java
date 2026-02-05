@@ -141,7 +141,7 @@ public class MenuManager implements Menu {
             double min = Double.parseDouble(scanner.nextLine());
             itemDAO.filterByMinPrice(min);
         }catch (NumberFormatException e){
-            System.out.println("invalid number");
+            System.out.println("invalid number format, please try again.");
         }
     }
 

@@ -132,7 +132,7 @@ public class ClothingItemDAO {
         String sql = "DELETE FROM clothing_item WHERE item_id = ?";
         Connection connection = DatabaseConnection.getConnection();
 
-        try{
+        try {
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, itemId);
 
@@ -144,7 +144,7 @@ public class ClothingItemDAO {
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
-        }finally {
+        } finally {
             DatabaseConnection.closeConnection(connection);
         }
     }
